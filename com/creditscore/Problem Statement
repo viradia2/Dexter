@@ -1,0 +1,42 @@
+Create a credit card user account object. It should with name, phone number, ssn, account number, 
+address, dob, email address, citizenship, balance, credit score.
+
+Credit score should not be given by the user. Rather it should be measured using the following logic.
+If balance > $10000, credit score is 500
+Balance > $7500 & Balance < $10000, credit score is 600
+Balance > $5000 & Balance < $7500, credit score is 650
+Balance > $2500  & Balance < $5000, credit score is 700
+Balance < $2500, credit score is 750
+
+
+Create a map of type long, bankAccount.
+Map< ? , userAccount>
+You should decide whether to take accountNumber, SerialNumber, SocialSecurityNumber, 
+Name etc as the distinguishing field for a particular user.
+
+Add 7 entries to the map. You need to add the name and all the details, I am just going to
+add the balance amount so that we cover most cases.
+(user1 : $10500, user2: $10000, user3: $7800, user4: $6300, user5: $5300, user6: $3700, user7: $2700)
+
+---------------------
+
+Now let's say an existing user is applying for a second credit card within the same bank.
+We need to ask the user to enter all the required details (remember balance and credit score
+should not be asked as the bank should already know the balance on the previous card and credit
+score can be found out using the users social security number and the balance details we have.)
+
+If the user has credit score 750, then approve application with limit $10000
+If the user has credit score 700, then approve application with limit $7500
+If the user has credit score 650, then approve application with limit $5000
+If the user has credit score 600, then approve application with limit $2500
+If the user has credit score is less than 600 then decline the request. 
+
+------------------------------------
+
+Case 2 : 
+
+Users each pay an amount of $1000 before applying for a new card. The same logic applies now.
+Now find who will get a new card with what limit and who will be declined.
+
+We have to go and look at the balance of the account again and determine the credit score again
+when the user requests for a new card as he might have paid the balance before applying and his credit might have improved.
